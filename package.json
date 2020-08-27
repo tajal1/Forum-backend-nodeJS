@@ -1,0 +1,27 @@
+{
+  "name": "forum-backend-nodejs",
+  "version": "1.0.0",
+  "description": "Forum will be a community where users/visitors can ask for solutions, answer on questions and  search for solutions by tags or titles.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TajalTechnology/Forum-backend-nodeJS.git"
+  },
+  "keywords": [
+    "nodeJS",
+    "express",
+    "backend"
+  ],
+  "author": "Md Tajal Islam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TajalTechnology/Forum-backend-nodeJS/issues"
+  },
+  "homepage": "https://github.com/TajalTechnology/Forum-backend-nodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
