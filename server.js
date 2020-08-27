@@ -1,16 +1,16 @@
 // ---------------------------------IMPORTING---------------------------------
 //express
 var express = require('express');
+//router
+const getRegisterRouter=require('./routers/authRouters')
 
 
 // ---------------------------------CONFIGURATION---------------------------------
 var app = express();
 
 
-// ---------------------------------BASIC ROUTING WITH FUNCTION---------------------------------
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
+// ---------------------------------ROUTING---------------------------------
+app.use('/api', getRegisterRouter)
 
 
 // ---------------------------------PORT DEFINE---------------------------------
