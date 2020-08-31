@@ -1,12 +1,16 @@
 // ---------------------------------IMPORTING---------------------------------
-//express
-var express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser')
+
+
 //router
 const getRegisterRouter=require('./routers/authRouters')
 
 
 // ---------------------------------CONFIGURATION---------------------------------
-var app = express();
+const app = express();
+app.use(bodyParser.json());
+app.use(express.json())
 
 
 // ---------------------------------ROUTING---------------------------------
