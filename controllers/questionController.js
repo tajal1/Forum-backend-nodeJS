@@ -1,4 +1,5 @@
 const Question = require('../models').Question
+const Answer = require('../models').Answer
 
 module.exports = {
     addQuestions:(req, res)=>{
@@ -14,5 +15,19 @@ module.exports = {
                 })
             }).catch(error => {return res.status(400).json({error})})
 
+    },
+    getQuestion:(req, res)=>{
+        let {id} = req.params
+        Question.findByPk(id,{
+            include:[Answer]
+        })
+            .then(user =>{
+                return res.status(201).json({
+                    "data": {
+                        "user": user,
+                    }
+                })
+
+            })
     }
 }

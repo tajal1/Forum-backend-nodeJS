@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 //router
 const getRegisterRouter=require('./routers/authRouters')
 const questionRouter = require('./routers/questionRouter')
+const answerRouter = require('./routers/answerRouter')
 
 
 // ---------------------------------CONFIGURATION---------------------------------
@@ -17,6 +18,7 @@ app.use(express.json())
 // ---------------------------------ROUTING---------------------------------
 app.use('/api', getRegisterRouter)
 app.use('/api', questionRouter)
+app.use('/api', answerRouter)
 
 
 // ---------------------------------PORT DEFINE---------------------------------

@@ -4,11 +4,10 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const Question = require('../models').Question
 
-
 //model
 const User = require('../models').User
 
-
+// ---------------------------------CONTROLLERS---------------------------------
 module.exports = {
 
     //register controller
@@ -21,12 +20,14 @@ module.exports = {
 
         User.findOne({where:{email:email}})
             .then(user =>{
+
                 if(user){
-                    return res.status(400).json({
+                    return res.status(406).json({
                         success:false,
                         error:'This email is already in use, try sign-in'
                     })
                 }//if
+
                 else{
                     User.create({firstName, lastName, password:hash, email, phoneNo,status})
                         .then(user =>{
@@ -36,8 +37,9 @@ module.exports = {
                                     "user": user,
                                 }
                             })
-                        }).catch(error => {return res.status(400).json({error})})
+                        })
                 }
+
             }).catch(error => {return res.status(400).json({error})})
 
     },//end signUp
@@ -64,9 +66,7 @@ module.exports = {
 
         User.findOne({where: {email:email}})
             .then(user =>{
-
                 if(user){
-
                     if(bcrypt.compareSync(password, user.password)){
                         const SECRET_KEY = 'RANDOM_SECRET_KEY'
                         const token = jwt.sign(user.dataValues, SECRET_KEY)
@@ -78,8 +78,21 @@ module.exports = {
                             }
                         })
                     }//if
-
+                    else{
+                        return res.status(401).json({
+                            "data": {
+                                "message": "Password not matches!"
+                            }
+                        })
+                    }
                 }//if
+                else{
+                    return res.status(401).json({
+                        "data": {
+                            "message": "Email address not found"
+                        }
+                    })
+                }
 
             }).catch(error => {return res.status(400).json({error})})
 
