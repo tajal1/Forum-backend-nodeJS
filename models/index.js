@@ -6,6 +6,9 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
+// const User = require('../models/user');
+// const Question = require('../models/question')
+
 const db = {};
 
 let sequelize;
@@ -30,6 +33,10 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
+
+//Assosiation
+
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
