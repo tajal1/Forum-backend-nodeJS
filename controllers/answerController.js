@@ -1,16 +1,18 @@
 // ---------------------------------IMPORTING---------------------------------
 const Answer = require('../models').Answer
 
+
 module.exports = {
     answer: (req, res) =>{
 
-        let {body, userId, questionId} = req.body
-        let id = req.params.id
+        let {body, questionId} = req.body
+        let respondentId = req.user.id
+        // console.log("from controller",userId)
 
 
         //http://localhost:3000/api/answers [POST]
         if (req.method === "POST"){
-            Answer.create({body, userId, questionId})
+            Answer.create({body, respondentId, questionId})
                 .then(answer =>{
                     return res.status(201).json({
                         "data": {

@@ -13,10 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Question, {
-        foreignKey:'userId'
+        foreignKey:'questionerId'
       });
+
       User.hasMany(models.Answer, {
-        foreignKey:'userId'
+        foreignKey:'respondentId'
       });
     }
   }

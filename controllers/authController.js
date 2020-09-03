@@ -6,6 +6,7 @@ const Question = require('../models').Question
 
 //model
 const User = require('../models').User
+const auth = require('../middlewares/auth')
 
 // ---------------------------------CONTROLLERS---------------------------------
 module.exports = {
@@ -22,19 +23,23 @@ module.exports = {
             .then(user =>{
 
                 if(user){
+
                     return res.status(406).json({
                         success:false,
                         error:'This email is already in use, try sign-in'
+
                     })
                 }//if
 
                 else{
+
                     User.create({firstName, lastName, password:hash, email, phoneNo,status})
                         .then(user =>{
                             return res.status(201).json({
                                 "data": {
                                     "message": "Registration complete",
                                     "user": user,
+
                                 }
                             })
                         })
@@ -69,11 +74,11 @@ module.exports = {
                 if(user){
                     if(bcrypt.compareSync(password, user.password)){
                         const SECRET_KEY = 'RANDOM_SECRET_KEY'
+                        console.log(user)
                         const token = jwt.sign(user.dataValues, SECRET_KEY)
                         return res.status(200).json({
                             "data": {
                                 "message": "login success",
-                                "user": user,
                                 "token": "Bearer " + token
                             }
                         })

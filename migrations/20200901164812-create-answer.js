@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId:{
+      respondentId:{
         type:Sequelize.INTEGER,
         allowNull: false,
       },

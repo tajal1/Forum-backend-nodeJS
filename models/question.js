@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Question.belongsTo(models.User, {
-        foreignKey:'userId'
-      });
+        foreignKey:'questionerId'
+      });//okk
 
       Question.hasMany(models.Answer, {
         foreignKey:'questionId'
