@@ -1,9 +1,12 @@
 // -------------------------IMPORTING-------------------------
-//import express
+//express
 const express = require('express')
-//import Controller
-const answerController = require('../controllers/answerController')
-const middleware = require('../middlewares/auth')
+//controller
+const {answer, answerView} = require('../controllers/answerController')
+//middleware
+const {Auth} = require('../middlewares/auth')
+const {answerValidators} = require('../validators/answerValidators')
+const {validationResult} = require('../validators/validationResult')
 
 
 // -------------------------DEFINE ROUTER-------------------------
@@ -11,10 +14,11 @@ const router = express.Router()
 
 
 // -------------------------CUSTOM ROUTE-------------------------
-router.post('/answers', middleware.Auth, answerController.answer)
-router.get('/answers/:id', answerController.answer)
-router.put('/answers/:id', answerController.answer)
-router.delete('/answers/:id', answerController.answer)
+router.post('/answers', answerValidators, validationResult, Auth, answer)
+// router.get('/answers/:id',middleware.Auth, answer)
+router.get('/answers/:id', answerView)
+router.put('/answers/:id',answerValidators,validationResult, Auth, answer)
+router.delete('/answers/:id', Auth, answer)
 
 
 // -------------------------EXPORT ROUTER-------------------------

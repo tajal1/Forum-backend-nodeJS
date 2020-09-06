@@ -5,6 +5,8 @@ const express = require('express')
 const question = require('../controllers/questionController')
 //authentication check
 const authMiddleware = require('../middlewares/auth')
+const {questionValidators} = require('../validators/questionValidator')
+const {validationResult} = require('../validators/validationResult')
 
 
 // -------------------------DEFINE ROUTER-------------------------
@@ -12,11 +14,12 @@ const router = express.Router()
 
 
 // -------------------------CUSTOM ROUTE-------------------------
-router.post('/questions', authMiddleware.Auth, question.questions)
-router.get('/questions', question.allQuestions)
-router.get('/questions/:id', question.questions)
-router.put('/questions/:id', question.questions)
-router.delete('/questions/:id', question.questions)
+router.post('/questions',questionValidators,validationResult, authMiddleware.Auth, question.questions)
+router.get('/questions', question.questionDetails)
+router.get('/questions/:id', question.questionDetails)
+router.get('/questions-s/:id', question.questions)//extra
+router.put('/questions/:id', authMiddleware.Auth, question.questions)
+router.delete('/questions/:id', authMiddleware.Auth, question.questions)
 
 
 

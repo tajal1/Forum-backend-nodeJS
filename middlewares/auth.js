@@ -13,7 +13,6 @@ module.exports = {
                 // console.log('JWT PAYLOADS: ', decoded)
                 if (!err) {
                     req.user = decoded
-                    console.log("decoded-id:", req.user.id)
                     next()
                 }
             })
