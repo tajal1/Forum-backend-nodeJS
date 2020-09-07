@@ -16,6 +16,7 @@ module.exports = {
       },
       tags: {
         type: Sequelize.STRING
+        // DataTypes.ARRAY(DataTypes.DECIMAL)
       },
       createdAt: {
         allowNull: false,

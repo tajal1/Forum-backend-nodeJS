@@ -28,8 +28,8 @@ module.exports = {
             .not()
             .isEmpty()
             .withMessage('tags is required!')
-            .isString()
-            .withMessage('tags must be string!')
+            // .isString()
+            // .withMessage('tags must be string!')
             .isLength({min:2, max:50})
             .withMessage('tags must be 5 to 50 characters'),
 
