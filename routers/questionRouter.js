@@ -15,13 +15,12 @@ const router = express.Router()
 
 // -------------------------CUSTOM ROUTE-------------------------
 router.post('/questions',questionValidators,validationResult, authMiddleware.Auth, question.questions)
-router.get('/questions', question.questionDetails)
-router.get('/questions/tagList', question.tagList)
-router.get('/questions/:id', question.questionDetails)
-router.get('/questions-s/:id', question.questions)//extra
 router.put('/questions/:id', authMiddleware.Auth, question.questions)
 router.delete('/questions/:id', authMiddleware.Auth, question.questions)
 
+router.get('/questions', question.questionDetails)
+router.get('/questions/tag-list', question.tagList)
+router.get('/questions/:id', question.questionDetails)
 
 
 // -------------------------EXPORT ROUTER-------------------------

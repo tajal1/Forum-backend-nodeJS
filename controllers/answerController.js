@@ -1,7 +1,6 @@
 // ---------------------------------IMPORTING---------------------------------
 const Answer = require('../models').Answer
 
-
 module.exports = {
 
     answer: (req, res) =>{
@@ -13,8 +12,6 @@ module.exports = {
 
         //http://localhost:3000/api/answers [POST]
         if (req.method === "POST"){
-
-
 
             Answer.create({body, respondentId, questionId})
                 .then(answer =>{
@@ -93,7 +90,6 @@ module.exports = {
     answerView:(req,res) => {
 
         let id = req.params.id
-
 
         Answer.findOne({where: {id: id}})
             .then(answer =>{

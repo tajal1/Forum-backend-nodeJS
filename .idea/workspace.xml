@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/raffCode.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/answerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/answerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/questionValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/questionValidator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,8 @@
       <workItem from="1599155236408" duration="7932000" />
       <workItem from="1599193422813" duration="35808000" />
       <workItem from="1599408060088" duration="9035000" />
-      <workItem from="1599452857755" duration="25182000" />
+      <workItem from="1599452857755" duration="26003000" />
+      <workItem from="1599539625932" duration="3457000" />
     </task>
     <servers />
   </component>
