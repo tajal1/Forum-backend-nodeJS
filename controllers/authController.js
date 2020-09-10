@@ -2,16 +2,14 @@
 //packages
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const Question = require('../models').Question
-
 //model
 const User = require('../models').User
-const auth = require('../middlewares/auth')
+
 
 // ---------------------------------CONTROLLERS---------------------------------
 module.exports = {
 
-    //register controller
+    //http://localhost:3000/api/sign-up (POST)
     signUp: (req, res) =>{
 
         let {firstName, lastName, password, email, phoneNo,status} = req.body
@@ -49,23 +47,7 @@ module.exports = {
 
     },//end signUp
 
-    //getData
-    getUser:(req, res) =>{
-        let {id} = req.params
-        User.findByPk(id,{
-            include:[Question]
-        })
-            .then(user =>{
-                return res.status(201).json({
-                    "data": {
-                        "user": user,
-                    }
-                })
-
-            })
-    },
-
-
+    // http://localhost:3000/api/sign-in (POST)
     login: (req, res) =>{
         let {email, password} = req.body
 
@@ -73,10 +55,11 @@ module.exports = {
             .then(user =>{
                 if(user){
                     if(bcrypt.compareSync(password, user.password)){
-                        const SECRET_KEY = 'RANDOM_SECRET_KEY'
-                        console.log(user)
+
+                        const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET
                         const token = jwt.sign(user.dataValues, SECRET_KEY)
-                        return res.status(200).json({
+
+                        return res.status(202).json({
                             "data": {
                                 "message": "login success",
                                 "token": "Bearer " + token
@@ -91,6 +74,7 @@ module.exports = {
                         })
                     }
                 }//if
+
                 else{
                     return res.status(401).json({
                         "data": {

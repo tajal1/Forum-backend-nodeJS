@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   Question.init({
     title: DataTypes.STRING,
     body: DataTypes.STRING,
-    tags: DataTypes.STRING,
+    tags: DataTypes.ARRAY(DataTypes.STRING)
     // DataTypes.ARRAY(DataTypes.STRING),
   }, {
     sequelize,

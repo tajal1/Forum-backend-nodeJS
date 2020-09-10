@@ -43,6 +43,7 @@ module.exports = {
                 .then(answer =>{
                     answer.update({body,respondentId, questionId})
                         .then(answer =>{
+                            //response
                             return res.status(202).json({
                                 "answer": {
                                     "message": "Successfully answer updated!",
@@ -57,7 +58,7 @@ module.exports = {
                                         }
                                     }
                                 }
-                            })
+                            })//
                         })
                 }).catch(error => {return res.status(400).json({error})})
 
@@ -69,7 +70,7 @@ module.exports = {
 
             Answer.destroy({where:{id:id}})
                 .then(() =>{
-                        return res.status(202).json({
+                        return res.status(204).json({
                                 "message": "Answer Deleted successfully"
                         })
                 }).catch(error => {return res.status(400).json({error})})
@@ -87,13 +88,14 @@ module.exports = {
 
     },
 
+    // http://localhost:3000/api/answers/:id (GET)
     answerView:(req,res) => {
 
         let id = req.params.id
 
         Answer.findOne({where: {id: id}})
             .then(answer =>{
-                return res.status(201).json({
+                return res.status(200).json({
                     "details": {
                         "answer": answer
                     }

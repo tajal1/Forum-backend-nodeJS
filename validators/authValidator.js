@@ -1,5 +1,7 @@
+// ---------------------------------IMPORTING---------------------------------
 const {check} = require('express-validator')
 
+//validators
 module.exports = {
     authValidators : [
 
@@ -36,6 +38,7 @@ module.exports = {
             .withMessage('Email is required!')
             .isEmail()
             .withMessage('Please provide a valid email address'),
+
 
         check('phoneNo')
             .trim()

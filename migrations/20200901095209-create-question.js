@@ -15,15 +15,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       tags: {
-        type: Sequelize.STRING
+        // Sequelize.STRING (Sequelize.TEXT)
+        type: Sequelize.ARRAY(Sequelize.STRING)
         // DataTypes.ARRAY(DataTypes.DECIMAL)
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       questionerId:{

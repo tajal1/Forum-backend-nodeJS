@@ -11,7 +11,8 @@ module.exports = {
             .isString()
             .withMessage('Body must be string!')
             .isLength({min:3, max:250})
-            .withMessage('Body name must be 3 to 50 characters'),
+            .withMessage('Body name must be 3 to 50 characters')
+
     ]
 }
 
