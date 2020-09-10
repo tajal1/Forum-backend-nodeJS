@@ -9,6 +9,9 @@ const {Op} = require("sequelize");
 //controller
 module.exports = {
 
+    // http://localhost:3000/api/questions (POST)
+    // http://localhost:3000/api/questions (PUT)
+    // http://localhost:3000/api/questions (DELETE)
     questions: (req, res) => {
 
         let {title, body, tags} = req.body
@@ -38,9 +41,11 @@ module.exports = {
                                 "tags": questions.tags
                             }
                         }
+                    })//return
 
-                    })
-                }).catch(error => {return res.status(400).json({error})})
+                }).catch(error => {
+                return res.status(400).json({error})
+            })
 
         }//if
 
@@ -65,9 +70,12 @@ module.exports = {
                                         "tags": questions.tags
                                     }
                                 }
-                            })
+                            })//return
+
                         })
-                }).catch(error => {return res.status(400).json({"error": error})})
+                }).catch(error => {
+                return res.status(400).json({"error": error})
+            })
 
         }//else if
 
@@ -82,8 +90,12 @@ module.exports = {
                         "data": {
                             "message": "Question Deleted successfully"
                         }
-                    })
-                }).catch(error => {return res.status(400).json({error})})
+                    })//return
+
+                }).catch(error => {
+                return res.status(400).json({error})
+            })
+
         }//else if
 
 
@@ -93,7 +105,7 @@ module.exports = {
                 "data": {
                     "message": "Sorry bad request!"
                 }
-            })
+            })//return
         }//else end
 
     },
@@ -105,83 +117,116 @@ module.exports = {
 
         let title = req.query.title
         let tag = req.query.tag
-        let where = {}
-
+        let where = []
 
         if (title) {
             where.push({title: {[Op.like]: '%' + title + '%'}})
-            console.log(where)
         }//if
 
         if (tag) {
             where.push({tags: {[Op.contains]: [tag]}})
         }//if
 
-        Question.findAll({where:where, include:Answer})
-            .then(questions =>{
+        Question.findAll({
+            where: where,
+            attributes: ['id', 'title', 'body',
+                [db.sequelize.fn('COUNT', db.sequelize.col('Answers.id')), 'count'],],
+            include: [{model: Answer, attributes: []}],
+            group: "Question.id"
+        })
+            .then(questions => {
 
-            //pagination
-            let totalQuestion = questions.length+1
-            const totalPage = Math.ceil(totalQuestion / 5);
-            let page = parseInt(req.query.page);
+                //pagination
+                let totalQuestion = questions.length
+                const totalPage = Math.ceil(totalQuestion / 5);
+                let page = parseInt(req.query.page);
 
-            if (!page) { page = 1;}
-            if (page > totalPage) {
-                page = totalPage
-            }
+                if (!page)
+                    page = 1//if
+
+                if (page > totalPage)
+                    page = totalPage//if
+                let pagination = {
+                    "current_page": page,
+                    "totalPage": totalPage,
+                    "totalQuestion": totalQuestion,
+                }//pagination
+
                 return res.status(201).json({
-                    page,
-                    totalPage,
-                    totalQuestion,
-                    "questions":questions.slice(page * 5 - 5, page * 5),
-                })
+                    "pagination": pagination,
+                    "questions": questions.slice(page * 5 - 5, page * 5),
+                })//return
 
-            }).catch(error => {return res.status(400).json({error})})
-
+            }).catch(error => {
+            return res.status(400).json({error})
+        })
 
     },
 
+
     // http://localhost:3000/api/questions/:id (GET)(ok)
-    questionDetails:(req, res)=>{
+    questionDetails: (req, res) => {
 
-        let id =req.params.id
+        let id = req.params.id
 
-        Question.findByPk(id,{include:[Answer]})
-            .then(questions =>{
+        Question.findByPk(id, {include: [Answer]})
+            .then(questions => {
 
                 return res.status(200).json({
                     "details": {
                         "questionDetails": {
-                            "id":questions.id,
-                            "title":questions.title,
-                            "body":questions.body,
-                            "tags":questions.tags,
+                            "id": questions.id,
+                            "title": questions.title,
+                            "body": questions.body,
+                            "tags": questions.tags,
                         },
-                        "total_answer":questions.Answers.length,
-                        "answerDetails":questions.Answers
+                        "total_answer": questions.Answers.length,
+                        "answer_details": questions.Answers
                     }
-                })
+                })//return
 
-            }).catch(error => {return res.status(400).json({error})})
+            }).catch(error => {
+            return res.status(400).json({error})
+        })
+
     },
 
 
     // http://localhost:3000/api/questions/tag-list (GET)
     tagList: (req, res) => {
-        // select distinct unnest(tags) as tags from public."Questions"
-        //limit, offsetconst result = await Model.findAndCountAll({
-        //   where: ...,
-        //   limit: 12,
-        //   offset: 12
-        // });
-        db.sequelize.query(`select distinct unnest(tags) as tag from public."Questions"`,{
+        //row query
+        db.sequelize.query(`select distinct unnest(tags) as tag from public."Questions"`, {
             type: db.sequelize.QueryTypes.SELECT
         })
             .then(tags => {
+
+                //pagination
+                const totalTags = tags.length;
+                const totalPage = Math.ceil(totalTags / 5);
+                let page = parseInt(req.query.page);
+
+                if (!page) {
+                    page = 1
+                }//if
+
+                if (page > totalPage) {
+                    page = totalPage
+                }//if
+
+                let pagination = {
+                    "current_page": page,
+                    "totalPage": totalPage,
+                    "totalQuestion": totalTags,
+                }//pagination
+
                 return res.status(200).json({
-                    "tags": tags
-                })
-            }).catch(error => {return res.status(400).json({error})})
+                    "tags": tags.slice(page * 5 - 5, page * 5),
+                    "pagination": pagination
+                })//return
+
+            }).catch(error => {
+            return res.status(400).json({error})
+        })
 
     }
 

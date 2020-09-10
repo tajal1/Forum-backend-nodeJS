@@ -20,24 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/answerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/answerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/raffCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/raffCode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/paginator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/raffCode.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/answerRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/answerRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/authRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/authRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/answerValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/answerValidators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/authValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/authValidator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +94,8 @@
       <workItem from="1599452857755" duration="26003000" />
       <workItem from="1599539625932" duration="30449000" />
       <workItem from="1599622209605" duration="38268000" />
+      <workItem from="1599732372763" duration="2598000" />
+      <workItem from="1599766100107" duration="4555000" />
     </task>
     <servers />
   </component>
@@ -135,6 +126,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598523068897" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599766854445">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599766854445" />
     <state x="429" y="127" width="1118" height="850" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599559428639">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
