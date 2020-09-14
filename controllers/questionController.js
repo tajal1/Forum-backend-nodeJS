@@ -110,17 +110,17 @@ module.exports = {
 
     },
 
-
     // http://localhost:3000/api/questions (GET)
     // http://localhost:3000/api/questions/:id (GET)
     questionList: (req, res) => {
 
         let title = req.query.title
         let tag = req.query.tag
+        let limit =req.query.size
         let where = []
 
         if (title) {
-            where.push({title: {[Op.like]: '%' + title + '%'}})
+            where.push({title:{[Op.like]: '%' + title + '%'}})
         }//if
 
         if (tag) {
@@ -128,33 +128,40 @@ module.exports = {
         }//if
 
         Question.findAll({
+
+            limit:limit,
+            offset:3,
             where: where,
             attributes: ['id', 'title', 'body',
-                [db.sequelize.fn('COUNT', db.sequelize.col('Answers.id')), 'count'],],
+                [db.sequelize.fn('count(*) over()', db.sequelize.col('*')), 'co'],
+                [db.sequelize.fn('COUNT', db.sequelize.col('Answers.id')), 'count'],
+            ],
             include: [{model: Answer, attributes: []}],
-            group: "Question.id"
+            group: "Question.id",
+            subQuery:false,
+
         })
             .then(questions => {
 
-                //pagination
-                let totalQuestion = questions.length
-                const totalPage = Math.ceil(totalQuestion / 5);
-                let page = parseInt(req.query.page);
-
-                if (!page)
-                    page = 1//if
-
-                if (page > totalPage)
-                    page = totalPage//if
-                let pagination = {
-                    "current_page": page,
-                    "totalPage": totalPage,
-                    "totalQuestion": totalQuestion,
-                }//pagination
+                // //pagination
+                // let totalQuestion = questions.length
+                // const totalPage = Math.ceil(totalQuestion / 5);
+                // let page = parseInt(req.query.page);
+                //
+                // if (!page)
+                //     page = 1//if
+                //
+                // if (page > totalPage)
+                //     page = totalPage//if
+                // let pagination = {
+                //     "current_page": page,
+                //     "totalPage": totalPage,
+                //     "totalQuestion": totalQuestion,
+                // }//pagination
 
                 return res.status(201).json({
-                    "pagination": pagination,
-                    "questions": questions.slice(page * 5 - 5, page * 5),
+
+                    "questions": questions
                 })//return
 
             }).catch(error => {
@@ -194,34 +201,23 @@ module.exports = {
 
     // http://localhost:3000/api/questions/tag-list (GET)
     tagList: (req, res) => {
-        //row query
-        db.sequelize.query(`select distinct unnest(tags) as tag from public."Questions"`, {
+
+        // let tag = req.query.tag
+        const limit = 5;
+        const offset = 5;
+        // select distinct unnest(tags) as tag from public."Questions" limit 5 offset 5
+
+        db.sequelize.query(`select distinct unnest(tags) as tag, count(*) over() from public."Questions" limit 5 offset 5`, {
             type: db.sequelize.QueryTypes.SELECT
         })
             .then(tags => {
-
-                //pagination
-                const totalTags = tags.length;
-                const totalPage = Math.ceil(totalTags / 5);
-                let page = parseInt(req.query.page);
-
-                if (!page) {
-                    page = 1
-                }//if
-
-                if (page > totalPage) {
-                    page = totalPage
-                }//if
-
-                let pagination = {
-                    "current_page": page,
-                    "totalPage": totalPage,
-                    "totalQuestion": totalTags,
-                }//pagination
+                console.log(tags.length)
 
                 return res.status(200).json({
-                    "tags": tags.slice(page * 5 - 5, page * 5),
-                    "pagination": pagination
+                    "tags": tags,
+                    "current_page":limit,
+                    "offset":offset,
+
                 })//return
 
             }).catch(error => {
@@ -231,3 +227,5 @@ module.exports = {
     }
 
 }
+
+//

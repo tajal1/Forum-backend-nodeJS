@@ -5,8 +5,8 @@ const express = require('express')
 const {answer, answerView} = require('../controllers/answerController')
 //middleware
 const {authVerify} = require('../middlewares/auth')
-const {answerValidators} = require('../validators/answerValidators')
-const {validationResult} = require('../validators/validationResult')
+const {answerValidators} = require('../middlewares/validators/answerValidators')
+const {validationResult} = require('../middlewares/validators/validationResult')
 
 
 // -------------------------DEFINE ROUTER-------------------------

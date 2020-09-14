@@ -20,13 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middlewares/pagination.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/raffCode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/answerRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/answerRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/authRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/authRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/answerValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/answerValidators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/authValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/authValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/questionValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/questionValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/validationResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/validationResult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +71,11 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/middlewares" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -95,7 +104,10 @@
       <workItem from="1599539625932" duration="30449000" />
       <workItem from="1599622209605" duration="38268000" />
       <workItem from="1599732372763" duration="2598000" />
-      <workItem from="1599766100107" duration="4555000" />
+      <workItem from="1599766100107" duration="4668000" />
+      <workItem from="1599797434874" duration="9610000" />
+      <workItem from="1599811856492" duration="9802000" />
+      <workItem from="1600052463462" duration="12082000" />
     </task>
     <servers />
   </component>

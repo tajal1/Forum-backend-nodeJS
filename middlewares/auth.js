@@ -10,7 +10,7 @@ module.exports = {
 
             let header = req.headers['authorization']
             let token = header.split(' ')
-            const SECRET_KEY = 'RANDOM_SECRET_KEY'
+            const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET
 
             jwt.verify(token[1], SECRET_KEY, function (err, decoded) {
                 if (!err) {

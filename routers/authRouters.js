@@ -4,8 +4,8 @@ const express = require('express')
 //Controller
 const {signUp,login} = require('../controllers/authController')
 //validators
-const {authValidators} = require('../validators/authValidator')
-const {validationResult} = require('../validators/validationResult')
+const {authValidators} = require('../middlewares/validators/authValidator')
+const {validationResult} = require('../middlewares/validators/validationResult')
 
 
 // -------------------------DEFINE ROUTER-------------------------
