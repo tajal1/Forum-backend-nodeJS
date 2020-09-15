@@ -110,58 +110,45 @@ module.exports = {
 
     },
 
+
     // http://localhost:3000/api/questions (GET)
     // http://localhost:3000/api/questions/:id (GET)
     questionList: (req, res) => {
-
+        //queryString
         let title = req.query.title
         let tag = req.query.tag
-        let limit =req.query.size
+        let page = parseInt(req.query.page);
+        page = page ? page : 1;
+
+        //limit, offset
+        let limit = 2
+        let offset = page ? (page - 1) * limit : 0;
+
+        //sequelize query
         let where = []
+        title ? where.push({title: {[Op.like]: '%' + title + '%'}}) : !title;
+        tag ? where.push({tags: {[Op.contains]: [tag]}}) : !tag;
 
-        if (title) {
-            where.push({title:{[Op.like]: '%' + title + '%'}})
-        }//if
-
-        if (tag) {
-            where.push({tags: {[Op.contains]: [tag]}})
-        }//if
-
-        Question.findAll({
-
-            limit:limit,
-            offset:3,
-            where: where,
+        Question.findAndCountAll({
+            limit: limit, offset: offset, where: where,
             attributes: ['id', 'title', 'body',
-                [db.sequelize.fn('count(*) over()', db.sequelize.col('*')), 'co'],
-                [db.sequelize.fn('COUNT', db.sequelize.col('Answers.id')), 'count'],
-            ],
+                [db.sequelize.fn('COUNT', db.sequelize.col('Answers.id')), 'count'],],
             include: [{model: Answer, attributes: []}],
             group: "Question.id",
-            subQuery:false,
-
+            subQuery: false,
         })
             .then(questions => {
 
-                // //pagination
-                // let totalQuestion = questions.length
-                // const totalPage = Math.ceil(totalQuestion / 5);
-                // let page = parseInt(req.query.page);
-                //
-                // if (!page)
-                //     page = 1//if
-                //
-                // if (page > totalPage)
-                //     page = totalPage//if
-                // let pagination = {
-                //     "current_page": page,
-                //     "totalPage": totalPage,
-                //     "totalQuestion": totalQuestion,
-                // }//pagination
+                const totalQuestion = questions.count.length
+                const totalPage = Math.ceil(totalQuestion / limit);
 
                 return res.status(201).json({
-
-                    "questions": questions
+                    "pagination": {
+                        "totalPage": totalPage,
+                        "current_page": page,
+                        "totalQuestion": totalQuestion,
+                    },
+                    "questions": questions.rows,
                 })//return
 
             }).catch(error => {
@@ -200,23 +187,35 @@ module.exports = {
 
 
     // http://localhost:3000/api/questions/tag-list (GET)
-    tagList: (req, res) => {
+    tagList: async (req, res) => {
 
-        // let tag = req.query.tag
-        const limit = 5;
-        const offset = 5;
-        // select distinct unnest(tags) as tag from public."Questions" limit 5 offset 5
+        //find out totalTag
+        const totalTag = await db.sequelize.query('select count(*) from (select distinct unnest(tags) as tag from public."Questions") as tag_table', {
+            type: db.sequelize.QueryTypes.SELECT
+        });
 
-        db.sequelize.query(`select distinct unnest(tags) as tag, count(*) over() from public."Questions" limit 5 offset 5`, {
+        let page = parseInt(req.query.page);
+        //limit, offset,totalPage
+        const limit = 15;
+        let offset = page ? (page - 1) * limit : 0;
+        const totalPage = Math.ceil(totalTag[0].count / limit);
+        //page validation
+        page = page ? page : 1;
+        page = page > totalPage ? totalPage : page;
+
+        db.sequelize.query('select distinct unnest(tags) as tag from public."Questions" limit ' + limit + ' offset ' + offset, {
             type: db.sequelize.QueryTypes.SELECT
         })
             .then(tags => {
-                console.log(tags.length)
 
                 return res.status(200).json({
+                    "pagination": {
+                        "current_page": page,
+                        "totalPage": totalPage,
+                        "totalTag": totalTag,
+                    },
                     "tags": tags,
-                    "current_page":limit,
-                    "offset":offset,
+
 
                 })//return
 

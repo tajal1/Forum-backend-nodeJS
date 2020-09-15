@@ -20,17 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middlewares/pagination.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/answerRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/answerRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/authRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/authRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/answerValidators.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/answerValidators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/authValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/authValidator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/questionValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/questionValidator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/validationResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/validationResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +53,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tech-forum-backend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -107,7 +100,9 @@
       <workItem from="1599766100107" duration="4668000" />
       <workItem from="1599797434874" duration="9610000" />
       <workItem from="1599811856492" duration="9802000" />
-      <workItem from="1600052463462" duration="12082000" />
+      <workItem from="1600052463462" duration="13706000" />
+      <workItem from="1600106912206" duration="2345000" />
+      <workItem from="1600159880905" duration="20488000" />
     </task>
     <servers />
   </component>
@@ -134,14 +129,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="709" y="354" width="559" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1599585454385" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600081810257">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1600081810257" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1598523068897">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598523068897" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1599766854445">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600199911185">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1599766854445" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1600199911185" />
     <state x="429" y="127" width="1118" height="850" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599559428639">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
