@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Backend API List</title>
+</head>
+
+<body>
+<h1>Forum backend API list</h1>
+<hr>
+
+<p>1. Registration (POST): <a href="#">http://localhost:3000/api/sign-up</a></p>
+    <pre>
+                Api Body:
+                    {
+                        "firstName":"Tajal Islam",
+                        "lastName":"Iscxx",
+                        "password":"tajalislam",
+                        "email":"mrpresident1189@gmail.com",
+                        "phoneNo":1883950739,
+                        "status":"yes"
+                    }
+    </pre>
+<hr>
+
+<p>2. Login (POST): <a href="#">http://localhost:3000/api/sign-in</a></p>
+        <pre>
+            Api Body:
+                {
+                    "password":"tajalislam",
+                    "email":"mrpresident1189@gmail.com"
+                }
+        </pre>
+        <pre>
+            JWT token:
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoianpma2ZqZ2pmYiIsImxhc3ROYW1lIjoiSXN
+            jeHgiLCJwYXNzd29yZCI6IiQyYiQxMCRtVmFDMExtMGU2RVVYY3U1VmdGOEN1TWVmS1FEZ0pVUE90M0pQbUp6U1ZtVVdDaHl3eHR
+            tdSIsImVtYWlsIjoic29wbGRAZ21haWwuY29tIiwicGhvbmVObyI6IjE4ODM5NTA3MzkiLCJzdGF0dXMiOiJva2siLCJjcmVhdGV
+            kQXQiOiIyMDIwLTA5LTAxVDE3OjAzOjA4LjU3OFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA5LTAxVDE3OjAzOjA4LjU3OFoiLCJpYXQ
+            iOjE1OTkwNzMwNTJ9.cZvvQ6IqoV48F_tOqlkS5XkYokmhU8bnjKYbKJW-8sk
+        </pre>
+<hr>
+
+<p>3. Add Question (POST): <a href="#">http://localhost:3000/api/questions</a></p>
+API body:
+<pre>
+{
+
+    "title":"How to install windows",
+    "body":"i have a probelm that i can not install windows in my pc. so guys plz help me",
+    "tags":"windows, laptop, pc"
+}
+</pre>
+
+<hr>
+
+<p>4. Update Question (PUT): <a href="#">http://localhost:3000/api/questions/:id</a></p>
+API body:
+<pre>
+    {
+
+        "title":"How to install windows",
+        "body":"i have a probelm that i can not install windows in my pc. so guys plz help me",
+        "tags":"windows, laptop, pc, laravel, linux, os"
+    }
+</pre>
+<hr>
+<p>5. Delete Question (DELETE):<a href="#">http://localhost:3000/api/questions/:id</a></p>
+<hr>
+
+<p>6. Questions List (GET):
+    <h4>A:<a href="#">http://localhost:3000/api/questions/</a></h4>
+    <h4>B:<a href="#">http://localhost:3000/api/questions?page=2</a></h4>
+    <h4>C:<a href="#">http://localhost:3000/api/questions?page=2&title=a&tag=java</a></h4>
+</p>
+<hr>
+<p>7. Question with Answers List (GET):<a href="#">http://localhost:3000/api/questions/:id</a></p>
+<hr>
+<p>8. Tag List(GET): <a href="#">http://localhost:3000/api/questions/tag-list</a></p>
+<hr>
+<p>9. Add Answer (POST): <a href="#">http://localhost:3000/api/answers</a></p>
+API body:
+<pre>
+    {
+        "body":"Total validation is: 1.must be string, 2.lenth check, required",
+        "questionId":2
+    }
+</pre>
+<hr>
+<p>10. Update Answer (PUT): <a href="#">http://localhost:3000/api/answers/:id</a></p>
+API body:
+<pre>
+    {
+        "body":"Total validation is: 1.must be string, 2.lenth check, required",
+        "questionId":2
+    }
+</pre>
+<hr>
+<p>11. Delete Answer (DELETE): <a href="#">http://localhost:3000/api/answers/:id</a></p>
+<hr>
+<p>12. Answer List(GET): <a href="#">http://localhost:3000/api/answers/:id</a></p>
+<hr>
+<hr>
+
+</body>
+</html>

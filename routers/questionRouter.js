@@ -13,7 +13,7 @@ const {validationResult} = require('../middlewares/validators/validationResult')
 const router = express.Router()
 
 // -------------------------CUSTOM ROUTE-------------------------
-router.get('/questions', questionList)
+router.get('/questions', questionList)//problem
 router.get('/questions/tag-list', tagList)
 router.get('/questions/:id', questionDetails)
 

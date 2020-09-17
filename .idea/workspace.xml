@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +104,11 @@
       <workItem from="1599811856492" duration="9802000" />
       <workItem from="1600052463462" duration="13706000" />
       <workItem from="1600106912206" duration="2345000" />
-      <workItem from="1600159880905" duration="20488000" />
+      <workItem from="1600159880905" duration="20904000" />
+      <workItem from="1600223335027" duration="1889000" />
+      <workItem from="1600332777665" duration="1890000" />
+      <workItem from="1600355885351" duration="2979000" />
+      <workItem from="1600358916112" duration="1055000" />
     </task>
     <servers />
   </component>
