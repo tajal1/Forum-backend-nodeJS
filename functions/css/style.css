@@ -1,0 +1,78 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    min-width: 100% !important;
+    width: 100% !important;
+    background: #F8F8F8;
+    -webkit-text-size-adjust: none
+}
+
+a {
+    color: #66c7ff;
+    text-decoration: none
+}
+
+p {
+    padding: 0 !important;
+    margin: 0 !important
+}
+
+img {
+    -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */
+}
+
+.mcnPreviewText {
+    display: none !important;
+}
+
+
+.cke_editable a,
+.cke_editable span,
+.cke_editable a span {
+    color: #000001 !important;
+}
+
+/* Mobile styles */
+@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+    .mobile-shell {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .m-center {
+        text-align: center !important;
+    }
+
+    .container {
+        padding: 0px 10px 10px 10px !important
+    }
+
+    .td {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+
+    .p30-15 {
+        padding: 30px 15px !important;
+    }
+
+
+    .fluid-img img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .column-top,
+    .column-empty {
+        float: left !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .column-empty {
+        padding-bottom: 10px !important;
+    }
+}

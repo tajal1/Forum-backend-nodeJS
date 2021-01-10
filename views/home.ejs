@@ -4,104 +4,406 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Backend API List</title>
+    <title>Backend API List </title>
 </head>
 
 <body>
-<h1>Forum backend API list</h1>
+<h1>Forum backend API list || Developed by Md.Tajal Islam</h1>
+<h3>TECH-BLOG</h3>
+<hr>
 <hr>
 
-<p>1. Registration (POST): <a href="#">http://localhost:3000/api/sign-up</a></p>
-    <pre>
-                Api Body:
-                    {
-                        "firstName":"Tajal Islam",
-                        "lastName":"Iscxx",
-                        "password":"tajalislam",
-                        "email":"mrpresident1189@gmail.com",
-                        "phoneNo":1883950739,
-                        "status":"yes"
-                    }
+<h1>Users</h1>
+<pre>
+1.Sign-up(POST) :http://localhost:3000/api/sign-up
+
+    ***Payload:
+
+    {
+   "userName":"porage",
+   "email":"porage@gmail.com",
+   "password":"tajalislam"
+    }
+
+</pre>
+<hr>
+<pre>
+2.Sign-in(POST) :(http://localhost:3000/api/sign-in
+
+    ***Payload:
+
+    {
+   "email":"porage@gmail.com",
+   "password":"tajalislam"
+    }
+</pre>
+<hr>
+3.Profile(GET) :<a href="http://localhost:3000/api/profile" target="_blank">http://localhost:3000/api/profile</a>
+<hr>
+<pre>
+4.Profile(PUT) :http://localhost:3000/api/profile
+
+    ***Payload:
+
+    {
+    "firstName":"Updated--3",
+    "lastName":"Islam",
+    "phoneNo":"01883950739",
+    "about":"Engineer"
+    }
+</pre>
+<hr>
+<pre>
+5.Profile (PUT) :http://localhost:3000/api/profile-pic
+
+    ***Payload:
+
+    profile[form-data]
+</pre>
+<hr>
+<pre>
+6.Update Password (PUT) :http://localhost:3000/api/update-password
+
+    ***Payload:
+
+    {
+    "oldPassword":"tajalislam",
+    "newPassword":"tajalislam123",
+    "conformPassword":"tajalislam123"
+    }
+</pre>
+<hr>
+<pre>
+7.OTP send [PUT]:http://localhost:3000/api/send-otp
+
+    ***Payload:
+    {
+    "email":"mrpresident1189@gmail.com"
+    }
+</pre>
+<hr>
+<pre>
+8.Forgot password [PUT]: http://localhost:3000/api/forgot-password
+    ***Payload:
+    {
+    "forgotCode":123456
+    "newPassword":"islamtajal",
+    "conformPassword":"islamtajal"
+    }
+</pre>
+<hr>
+<pre>
+9.Account Delete (DELETE) :http://localhost:3000/api/delete-account
+</pre>
+
+<hr>
+<h1>Administration-user</h1>
+10.User View (GET) :<a href="http://localhost:3000/api/user/:id" target="_blank"> http://localhost:3000/api/user/:id</a>
+
+***Permission Key:"can_view_user"
+<hr>
+<pre>
+11.User Update(PUT) :http://localhost:3000/api/user/:id
+
+    ***Permission Key:"can_update_user"
+
+    ***Payload:
+
+    {
+    "roles":[2,3,4],
+    "userName":"porage",
+    "email":"porage@gmail.com",
+    "firstName":"sopnil",
+    "lastName":"Islam",
+    "phoneNo":"0161633745",
+    "about":"driver",
+    "status":"in-active",
+    "banned":false
+    }
+</pre>
+<hr>
+<pre>
+12.Role Update (PUT) :http://localhost:3000/api/user-update/:id
+
+    ***Permission Key:"can_add_groups"
+
+    ***Payload:
+
+    {
+    "roles":[2,3,4,5]
+    }
+</pre>
+<hr>
+<pre>
+13.Banned User (PUT)://localhost:3000/api/banned-user/:id
+
+    ***Permission Key:"can_banned_user"
+
+    ***Payload:
+
+    {
+    "banned":true
+    }
+</pre>
+<hr>
+<pre>
+    ***New
+14.Users List (GET):http://localhost:3000/api/users
+
+    ***Pagination & QueryString Type:
+
+    ***http://localhost:3000/api/users?page=2
+    ***http://localhost:3000/api/users?userName=tajal islam
+    ***http://localhost:3000/api/users?email=mdtajalislam1189
+
+    ***Permission Key:"can_get_users"
+
+</pre>
+<hr>
+
+<pre>
+<h1>Roles and Permissions Settings</h1>
+15.Role & Permission (POST):http://localhost:3000/api/role
+
+    ***Permission key:"can_add_role"
+
+    ***Payload:
+
+    {
+    "name":"Groups-Creator",
+    "status":"active",
+    "defaultGroup":true,
+    "permission":["can_add_role"]
+    }
+</pre>
+<hr>
+<pre>
+16.Role & Permission (PUT):http://localhost:3000/api/role/:id
+
+    ***Permission key:"can_update_role"
+
+    ***Payload:
+
+    {
+    "name":"Groups-Creator",
+    "status":"active",
+    "defaultGroup":true,
+    "permission":["can_add_role"]
+    }
+</pre>
+<hr>
+<pre>
+17.Role & Permission (DELETE):http://localhost:3000/api/role/:id
+
+    ***Permission key:"can_delete_role"
+</pre>
+<hr>
+<pre>
+18.GET Role =>http://localhost:3000/api/role/:id
+</pre>
+<hr>
+<pre>
+19.Role & Permission (GET):<a href="http://localhost:3000/api/roles" target="_blank">http://localhost:3000/api/roles</a>
+
+    ***Pagination & QueryString type:
+    ***http://localhost:3000/api/roles?page=1
+    ***Permission key:"can_view_roles"
+</pre>
+<hr>
+<pre>
+20.All Permissions (GET):http://localhost:3000/api/permissions
+
+    ***Permission key:"can_view_permissions"
+</pre>
+<hr>
+<pre>
+<h1>Questions</h1>
+21.Add Question (POST): http://localhost:3000/api/question
+
+    ***Payload:
+    {
+    "title":"How to install windows",
+    "body":"Write here body",
+    "tags":["java", "javascript", "node", "express","go"]
+    }
+</pre>
+<hr>
+<pre>
+22. Update Question (PUT): http://localhost:3000/api/question/:id
+    ***Payload:
+    {
+    "title":"How to install windows",
+    "body":"Write here body",
+    "tags":["java", "javascript", "node", "express","go"]
+    }
+</pre>
+<hr>
+23.Delete Question (DELETE):http://localhost:3000/api/question/:id
+<hr>
+<pre>
+24.Questions List (GET):<a href="http://localhost:3000/api/questions" target="_blank">http://localhost:3000/api/questions</a>
+    A:<a href="http://localhost:3000/api/questions?page=2"d
+         target="_blank">http://localhost:3000/api/questions?page=2</a>
+    B:<a href="http://localhost:3000/api/questions?page=2&title=here" target="_blank">http://localhost:3000/api/questions?page=2&title=here</a>
+    C:<a href="http://localhost:3000/api/questions?page=2&title=a&tag=java" target="_blank">http://localhost:3000/api/questions?page=2&title=a&tag=java</a>
+</pre>
+<hr>
+25.Question Details (GET): <a href="http://localhost:3000/api/question-details/:id" target="_blank">http://localhost:3000/api/question-details/:id</a>
+<hr>
+26.Question with Answers List (GET):<a href="http://localhost:3000/api/question-answers/:id" target="_blank">http://localhost:3000/api/question-answers/:id</a>
+<hr>
+27.Tag List(GET): <a href="http://localhost:3000/api/questions/tag-list" target="_blank">http://localhost:3000/api/questions/tag-list</a>
+<hr>
+<h1>Questions Administrative API</h1>
+<pre>
+28.Pending Question List (GET):<a href="http://localhost:3000/api/pending-question-list" target="_blank">http://localhost:3000/api/pending-question-list</a>
+        ***Pagination & QueryString type:
+        *** http://localhost:3000/api/pending-question-list?page=2
+        ***Permission Key:"can_view_pending_list"
+</pre>
+<hr>
+<pre>
+
+29.http://localhost:3000/api/question-approval/2
+
+    ***Payload:
+
+    {
+    "approval":true
+    }
     </pre>
 <hr>
-
-<p>2. Login (POST): <a href="#">http://localhost:3000/api/sign-in</a></p>
-        <pre>
-            Api Body:
-                {
-                    "password":"tajalislam",
-                    "email":"mrpresident1189@gmail.com"
-                }
-        </pre>
-        <pre>
-            JWT token:
-            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoianpma2ZqZ2pmYiIsImxhc3ROYW1lIjoiSXN
-            jeHgiLCJwYXNzd29yZCI6IiQyYiQxMCRtVmFDMExtMGU2RVVYY3U1VmdGOEN1TWVmS1FEZ0pVUE90M0pQbUp6U1ZtVVdDaHl3eHR
-            tdSIsImVtYWlsIjoic29wbGRAZ21haWwuY29tIiwicGhvbmVObyI6IjE4ODM5NTA3MzkiLCJzdGF0dXMiOiJva2siLCJjcmVhdGV
-            kQXQiOiIyMDIwLTA5LTAxVDE3OjAzOjA4LjU3OFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA5LTAxVDE3OjAzOjA4LjU3OFoiLCJpYXQ
-            iOjE1OTkwNzMwNTJ9.cZvvQ6IqoV48F_tOqlkS5XkYokmhU8bnjKYbKJW-8sk
-        </pre>
-<hr>
-
-<p>3. Add Question (POST): <a href="#">http://localhost:3000/api/questions</a></p>
-API body:
 <pre>
-{
+ 30.   ***NEW
+    Question Approval (PUT):http://localhost:3000/api/pending-question/:id
 
-    "title":"How to install windows",
-    "body":"i have a probelm that i can not install windows in my pc. so guys plz help me",
-    "tags":"windows, laptop, pc"
-}
+    ***Permission Key:"can_update_pending_question"
 </pre>
-
 <hr>
-
-<p>4. Update Question (PUT): <a href="#">http://localhost:3000/api/questions/:id</a></p>
-API body:
 <pre>
-    {
+ 31.   ***NEW:
+    GET=>http://localhost:3000/api/pending-question/:id
 
-        "title":"How to install windows",
-        "body":"i have a probelm that i can not install windows in my pc. so guys plz help me",
-        "tags":"windows, laptop, pc, laravel, linux, os"
+    ***Permission Key:"can_view_pending_question"
+</pre>
+<hr>
+<pre>
+ 32.    ***NEW:
+    DELETE=>http://localhost:3000/api/pending-question/:id
+
+    ***Permission Key:"can_delete_pending_question"
+</pre>
+<hr>
+<pre>
+<h1>Answers</h1>
+33.Add Answer (POST): http://localhost:3000/api/answer
+
+    ***Payload:
+
+    {
+    "body":"Write here answer body",
+    "questionId":2
     }
 </pre>
 <hr>
-<p>5. Delete Question (DELETE):<a href="#">http://localhost:3000/api/questions/:id</a></p>
-<hr>
+>
+<pre>
+34.Update Answer (PUT): http://localhost:3000/api/answer/:id
 
-<p>6. Questions List (GET):
-    <h4>A:<a href="#">http://localhost:3000/api/questions/</a></h4>
-    <h4>B:<a href="#">http://localhost:3000/api/questions?page=2</a></h4>
-    <h4>C:<a href="#">http://localhost:3000/api/questions?page=2&title=a&tag=java</a></h4>
-</p>
-<hr>
-<p>7. Question with Answers List (GET):<a href="#">http://localhost:3000/api/questions/:id</a></p>
-<hr>
-<p>8. Tag List(GET): <a href="#">http://localhost:3000/api/questions/tag-list</a></p>
-<hr>
-<p>9. Add Answer (POST): <a href="#">http://localhost:3000/api/answers</a></p>
-API body:
-<pre>
+    ***Payload:
+
     {
-        "body":"Total validation is: 1.must be string, 2.lenth check, required",
-        "questionId":2
+    "body":"Write here updated answer body",
+    "questionId":2
     }
 </pre>
 <hr>
-<p>10. Update Answer (PUT): <a href="#">http://localhost:3000/api/answers/:id</a></p>
-API body:
+35.Delete Answer (DELETE): http://localhost:3000/api/answer/:id
+<hr>
+36.View Answer (GET): <a href="http://localhost:3000/api/answer/:id" target="_blank">http://localhost:3000/api/answer/:id</a>
+<hr>
+<h1>Answers Administrative API</h1>
+
+37.Update Answer (PUT): http://localhost:3000/api/answer-update/1
+
+***Permission Key:"can_update_answer"
+<hr>
+38.Questions Answers List (GET): <a href="http://localhost:3000/api/questions-answers" target="_blank">http://localhost:3000/api/questions-answers</a>
+
+***Permission Key:"can_view_question_answers"
+<hr>
 <pre>
+<h1>Comments</h1>
+39.Add Comment (POST): http://localhost:3000/api/comment
+
+    ***Payload:
+
     {
-        "body":"Total validation is: 1.must be string, 2.lenth check, required",
-        "questionId":2
+    "body":"whats up bro?",
+    "commentableId":1,
+    "commentableType":"question"
     }
 </pre>
 <hr>
-<p>11. Delete Answer (DELETE): <a href="#">http://localhost:3000/api/answers/:id</a></p>
+>
+<pre>
+40.Update Comment (PUT):http://localhost:3000/api/comment/:id
+
+    ***Payload:
+
+    {
+    "body":"whats up bro? please update your comment",
+    "commentableId":1,
+    "commentableType":"question"
+    }
+</pre>
+
 <hr>
-<p>12. Answer List(GET): <a href="#">http://localhost:3000/api/answers/:id</a></p>
+41.View Comment (GET):<a href="http://localhost:3000/api/comment/:id" target="_blank">
+    http://localhost:3000/api/comment/:id</a>
 <hr>
+42.Delete Comment (DELETE): http://localhost:3000/api/comment
+<hr>
+***NEW
+43.http://localhost:3000/api/latest-questions
+<hr>
+***NEW
+44.http://localhost:3000/api/popular-tags
+<hr>
+<pre>
+45.Question view count[POST]:http://localhost:3000/api/views/:id
+
+    ***Payload:
+    id,
+    userId
+</pre>
+<hr>
+<pre>
+
+46.Pending question 5 list [GET]:http://localhost:3000/api/latest-pending-questions
+
+    ***Permission key:
+    "can_view_pending_list"
+</pre>
+<hr>
+<pre>
+47.Dashboard Count API [GET]:http://localhost:3000/api/count
+
+    ***Permission key:
+    "can_view_total_count"
+</pre>
+<hr>
+<pre>
+48.Latest user [GET]:http://localhost:3000/api/latest-user
+
+</pre>
+
+<hr>
+<pre>
+49.Latest user [PUT]:http://localhost:3000/api/email-verify/a8b60e49-cb10-405e-a281-233874264f1e
+
+</pre>
+
 <hr>
 
 </body>

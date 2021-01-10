@@ -20,11 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b9aaf22-b5b2-4854-b1bc-f10685366808" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/commentController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middlewares/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/commentRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/answerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/answerController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/questionController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/validators/questionValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/validators/questionValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20200901095209-create-question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/answer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/authRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/authRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/questionRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/questionRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +71,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../E-commerce-CPL" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,11 +83,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controllers" />
+      <recent name="$PROJECT_DIR$/middlewares" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/middlewares" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -117,7 +135,28 @@
       <workItem from="1600420428397" duration="7408000" />
       <workItem from="1600429777209" duration="2409000" />
       <workItem from="1600670397107" duration="1354000" />
-      <workItem from="1600671916803" duration="4316000" />
+      <workItem from="1600671916803" duration="7775000" />
+      <workItem from="1600752420441" duration="4857000" />
+      <workItem from="1600933575889" duration="6578000" />
+      <workItem from="1601028191455" duration="379000" />
+      <workItem from="1601028710380" duration="1646000" />
+      <workItem from="1601270338660" duration="27000" />
+      <workItem from="1601448675364" duration="20000" />
+      <workItem from="1601541281198" duration="11284000" />
+      <workItem from="1601608932925" duration="4998000" />
+      <workItem from="1601956330545" duration="5848000" />
+      <workItem from="1601978128403" duration="11000" />
+      <workItem from="1602134829394" duration="23000" />
+      <workItem from="1602217774254" duration="6034000" />
+      <workItem from="1602224358962" duration="6885000" />
+      <workItem from="1602269275535" duration="661000" />
+      <workItem from="1602752282945" duration="5240000" />
+      <workItem from="1603078825774" duration="3386000" />
+      <workItem from="1603159630066" duration="7071000" />
+      <workItem from="1603377882166" duration="58000" />
+      <workItem from="1603765081263" duration="1799000" />
+      <workItem from="1603792220533" duration="1505000" />
+      <workItem from="1604563162821" duration="15000" />
     </task>
     <servers />
   </component>
@@ -144,18 +183,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="709" y="354" width="559" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1599585454385" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600081810257">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603377937341">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1600081810257" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603377937341" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1598523068897">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1598523068897" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1600199911185">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1602234833151">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1600199911185" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1602234833151" />
     <state x="429" y="127" width="1118" height="850" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600426507894">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

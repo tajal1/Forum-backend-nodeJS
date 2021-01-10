@@ -18,11 +18,13 @@ module.exports = {
                     next()
                 }
             })
-        }
-        catch (e) {
+
+        } catch (e) {
+
             return res.status(403).json({
                 "message": "Access Denied"
             })
+
         }
 
     }// authVerify

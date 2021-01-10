@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "password",
-    "database": "forum-1_m_s",
+    "database": "tech_blog",
     "host": "db",
     "dialect": "postgres"
   },
@@ -14,10 +14,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "postgres",
+    "password": "password",
+    "database": "tech_blog",
+    "port":"5432",
+    "host": "db",
+    "dialect": "postgres"
   }
 }

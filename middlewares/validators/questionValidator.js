@@ -10,7 +10,7 @@ module.exports = {
             .withMessage('Title is required!')
             .isString()
             .withMessage('Title is must be string!')
-            .isLength({min:5, max:50})
+            .isLength({min:5, max:255})
             .withMessage('Title is must be 5 to 50 characters'),
 
         check('body')
@@ -20,7 +20,7 @@ module.exports = {
             .withMessage('body is required!')
             .isString()
             .withMessage('body must be string!')
-            .isLength({min:5, max:250})
+            .isLength({min:5})
             .withMessage('body must be 5 to 250 characters'),
 
         check('tags')
@@ -30,7 +30,7 @@ module.exports = {
             .withMessage('tags is required!')
             // .isString()
             // .withMessage('tags must be string!')
-            .isLength({min:2, max:50})
+            .isLength({min:2, max:255})
             .withMessage('tags must be 5 to 50 characters'),
 
 

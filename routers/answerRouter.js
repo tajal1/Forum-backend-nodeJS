@@ -1,10 +1,8 @@
 // -------------------------IMPORTING-------------------------
-//express
 const express = require('express')
-//controller
-const {answer, answerView} = require('../controllers/answerController')
-//middleware
+const {answer, answerView, getQuestionAnswers, updateAnswer} = require('../controllers/answerController')
 const {authVerify} = require('../middlewares/auth')
+const {hasAccess} = require('../middlewares/hasAccess')
 const {answerValidators} = require('../middlewares/validators/answerValidators')
 const {validationResult} = require('../middlewares/validators/validationResult')
 
@@ -12,12 +10,39 @@ const {validationResult} = require('../middlewares/validators/validationResult')
 // -------------------------DEFINE ROUTER-------------------------
 const router = express.Router()
 
-
 // -------------------------CUSTOM ROUTE-------------------------
-router.get('/answers/:id', answerView)
-router.delete('/answers/:id', authVerify, answer)
-router.post('/answers', answerValidators, validationResult, authVerify, answer)
-router.put('/answers/:id',answerValidators,validationResult, authVerify, answer)
+router.get('/answer/:id', answerView)
+
+router.delete('/answer/:id',
+    authVerify,
+    answer
+)
+router.post('/answer',
+    authVerify,
+    answerValidators,
+    validationResult,
+    answer
+)
+router.put('/answer/:id',
+    authVerify,
+    answerValidators,
+    validationResult,
+    answer
+)
+
+router.get('/questions-answers',
+    authVerify,
+    hasAccess("can_view_question_answers"),
+    getQuestionAnswers,
+)
+
+router.put('/answer-update/:id',
+    authVerify,
+    hasAccess("can_update_answer"),
+    answerValidators,
+    validationResult,
+    updateAnswer,
+)
 
 
 // -------------------------EXPORT ROUTER-------------------------
